@@ -146,6 +146,55 @@ public class Main {
 //        void insert(int index, int value) { } // shift the tail
 //        // improve bubble sort (kinda make it better somehow)
 
+        public int lookup(int value) {
+            for (int i = 0; i < this.size; i++) {
+                if (this.arr[i] == value) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public boolean deleteAll(int value) { // O(N)
+            boolean result = false;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] == value) delete(i);
+                result = true;
+            }
+            return result;
+        }
+
+        public boolean deleteAll() {
+            size = 0;
+            return false;
+        }
+
+        void insert(int index, int value) { //O(1)
+            append(0);
+            System.arraycopy(arr, index, arr, index + 1, size - index);
+            arr[index] = value;
+        }
+
+        public void sortCount() { // O(N)
+            int[] count = new int[size];
+            int countSize = -1;
+
+            for (int i = 0; i < size; i++) {
+                count[arr[i]]++;
+                if (arr[i] > countSize)  countSize = arr[i];
+            }
+
+            int j = 0;
+            for (int c = 0; c <=countSize; c++) {
+                if (count[c] == 0) continue;
+                for (int i = 0; i < count[c]; i++) {
+                    arr[j] = c;
+                    j++;
+                }
+            }
+            isSorted = true;
+        }
+
         @Override
         public String toString() {
             if (arr == null)
@@ -173,10 +222,16 @@ public class Main {
 //        System.out.println(array);
 //        array.delete(2);
 //        System.out.println(array);
-        array.sortInsert();
-        System.out.println(array);
-        System.out.println(array.hasValue(7));
+//        array.sortInsert();
+//        System.out.println(array);
 
+        array.deleteAll(7);
+        System.out.println(array);
+//        array.deleteAll();
+        array.insert(5,7);
+        System.out.println(array);
+        array.sortCount();
+        System.out.println(array);
     }
 
     private static void standardArrayThings() {
