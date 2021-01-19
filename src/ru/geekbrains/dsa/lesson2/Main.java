@@ -156,10 +156,12 @@ public class Main {
         }
 
         public boolean deleteAll(int value) { // O(N)
-            int i;
-            while ((i = lookup(value)) >= 0)
-                delete(i);
-            return i != -1;
+            boolean result = false;
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] == value) delete(i);
+                result = true;
+            }
+            return result;
         }
 
         public boolean deleteAll() {
@@ -173,7 +175,7 @@ public class Main {
             arr[index] = value;
         }
 
-        public void sortCount() { // O(N^2)
+        public void sortCount() { // O(N)
             int[] count = new int[size];
             int countSize = -1;
 
