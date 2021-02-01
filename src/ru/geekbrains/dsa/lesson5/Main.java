@@ -7,7 +7,7 @@ public class Main {
 
     public static void king(int x, int y, int toX, int toY) {
         if (x == toX && y == toY) {
-            desk[x][y]++;
+            //desk[x][y]++;
             return;
         }
         for (int i = 0; i < moves.length; i++) {
@@ -25,8 +25,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //king(0,0, desk.length - 1, desk[0].length - 1);
-        queen(7);
+        king(0,0, desk.length - 1, desk[0].length - 1);
+        //queen(7);
         printDesk();
     }
 
