@@ -27,11 +27,11 @@ public class Main {
             }
         }
         protected Node head;
-        private ListIterator iterator;
+        private SingleListIterator iterator;
 
         public SingleLinkedList() {
             this.head = null;
-            this.iterator = new ListIterator(this);
+            this.iterator = new SingleListIterator(this);
         }
 
         public boolean isEmpty() {
@@ -83,7 +83,7 @@ public class Main {
 
         }
 
-        public ListIterator getIterator() {
+        public SingleListIterator getIterator() {
             return iterator;
         }
 
@@ -104,12 +104,12 @@ public class Main {
         }
     }
 
-    static class ListIterator {
+    static class SingleListIterator {
         private final SingleLinkedList list;
         private SingleLinkedList.Node current;
         private SingleLinkedList.Node prev;
 
-        public ListIterator(SingleLinkedList list) {
+        public SingleListIterator(SingleLinkedList list) {
             this.list = list;
         }
 
@@ -123,9 +123,11 @@ public class Main {
             current = current.next;
         }
 
+
         public SingleLinkedList.Node getCurrent() {
             return current;
         }
+
 
         public boolean atEnd() {
             return current.next == null;
@@ -177,7 +179,7 @@ public class Main {
         list.push(new Cat(1,"Barsik"));
         list.push(new Cat(2,"Murzik"));
         list.push(new Cat(3,"Bandit"));
-        ListIterator iterator = list.getIterator();
+        SingleListIterator iterator = list.getIterator();
         iterator.reset();
 //        while (iterator.getCurrent() != null) {
 //            System.out.println(iterator.getCurrent().c.toString());
