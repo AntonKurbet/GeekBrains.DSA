@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class Main {
-    private static class Stack {
+    public static class Stack {
         private int[] stack;
         private int head;
 
@@ -66,7 +66,7 @@ public class Main {
         return -1;
     }
 
-    private static class Queue {
+    public static class Queue {
         protected int[] queue;
         protected int head;
         protected int tail;
